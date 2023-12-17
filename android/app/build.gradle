@@ -24,16 +24,16 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.proctor_gamble"
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
-
+    compileSdk = 34
+    ndkVersion '26.1.10909125'
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     sourceSets {
@@ -42,11 +42,9 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.proctor_gamble"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdk = 31
+        targetSdk = 34
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -58,10 +56,30 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    flavorDimensions = ["pg"]
+    productFlavors{
+        whisper{
+            dimension "pg"
+            applicationId "com.pg.you"
+            resValue "string", "app_name", "Whisper"
+        }
+        alwaysyou{
+            dimension "pg"
+            applicationId "com.pg.you"
+            resValue "string", "app_name", "Always You"
+        }
+        periosfer{
+            dimension "pg"
+            applicationId "com.pg.orkid"
+            resValue "string", "app_name", "Periosfer"
+        }
+    }
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.0.4"
+}

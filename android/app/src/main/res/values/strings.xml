@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <!-- <string name="app_name">Always You</string> -->
+    <string name="facebook_app_id">3410180065701312</string>
+    <string name="fb_login_protocol_scheme">fb3410180065701312</string>
+    <string name="facebook_client_token">49a0e03fb50db9f10b9fec1451959c69</string>
+</resources>
