@@ -56,21 +56,21 @@ android {
             signingConfig signingConfigs.debug
         }
     }
-    flavorDimensions = ["pg"]
+    flavorDimensions = ["environments"]
     productFlavors{
-        whisper{
-            dimension "pg"
-            applicationId "com.pg.you"
+        dev{
+            dimension "environments"
+            applicationId "com.example.dev"
             resValue "string", "app_name", "Whisper"
         }
-        alwaysyou{
-            dimension "pg"
-            applicationId "com.pg.you"
+        uat{
+            dimension "environments"
+            applicationId "com.example.uat"
             resValue "string", "app_name", "Always You"
         }
-        periosfer{
-            dimension "pg"
-            applicationId "com.pg.orkid"
+        prod{
+            dimension "environments"
+            applicationId "com.example.prod"
             resValue "string", "app_name", "Periosfer"
         }
     }
